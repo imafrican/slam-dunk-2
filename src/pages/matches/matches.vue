@@ -1,7 +1,7 @@
 <template>
   <div>
     
-    <i-tabs :current="current" color="#2b85e" bindchange="handleChange">
+    <i-tabs :current="current" color="#2b85e">
      <i-tab key="tab1" title="赛事"></i-tab>
      <i-tab key="tab2" title="我的球队"></i-tab>
     </i-tabs>
@@ -20,6 +20,17 @@
     <view style="padding: 15px;"><img src="cloud://southafrica.736f-southafrica/rocket.jpg" style="width:50px;height:50px"><img src="cloud://southafrica.736f-southafrica/rocket.jpg" style="width:50px;height:50px"></view>
     </i-panel>
     <rich-text :nodes="nodes" bindtap="tap"></rich-text>
+    <i-modal title="标题" visible="visible1" bind:ok="handleOpen1" bind:cancel="handleClose1">
+    <view>一些文本</view>
+    <view>一些文本</view>
+    <view>一些文本</view>
+    <view>一些文本</view>
+    <view>一些文本</view>
+    <view>一些文本</view>
+    <view>一些文本</view>
+    <view>一些文本</view>
+    <view>一些文本</view>
+</i-modal>
   </div>
 </template>
 
@@ -28,6 +39,7 @@ import card from '@/components/card'
 export default {
   data () {
     return {
+      visible1: false,
       nodes: [{
         name: 'div',
         attrs: {
@@ -51,6 +63,17 @@ export default {
     card
   },
   methods: {
+    handleOpen1 () {
+      this.setData({
+        visible1: true
+      })
+    },
+
+    handleClose1 () {
+      this.setData({
+        visible1: false
+      })
+    },
     tap () {
       console.log('tap')
     },
